@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:statefull_widget/layout/color_palette.dart';
+import 'package:statefull_widget/method/inputs.dart';
+import 'package:statefull_widget/method/show_method1.dart';
+import 'package:statefull_widget/method/show_method2.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -53,75 +56,9 @@ class _HomeState extends State<Home> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              TextFormField(
-                controller: _inputUser,
-                keyboardType: TextInputType.number,
-                decoration: const InputDecoration(
-                  hintText: 'Masukkan Suhu Dalam Celcius',
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Column(
-                    children: [
-                      const Text('Suhu dalam Kelvin'),
-                      const SizedBox(height: 15),
-                      Text(
-                        '' + _kelvin.toStringAsFixed(2),
-                        style: const TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      const Text('Suhu dalam Reamur'),
-                      const SizedBox(height: 15),
-                      Text(
-                        '' + _reamur.toStringAsFixed(2),
-                        style: const TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Column(
-                    children: [
-                      const Text('Suhu dalam Fahrenheit'),
-                      const SizedBox(height: 15),
-                      Text(
-                        '' + _fahrenheit.toStringAsFixed(2),
-                        style: const TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      const Text('Suhu dalam Celcius'),
-                      const SizedBox(height: 15),
-                      Text(
-                        '' + _celcius.toStringAsFixed(2),
-                        style: const TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+              InputWidget(inputUser: _inputUser),
+              KelvinReamur(kelvin: _kelvin, reamur: _reamur),
+              FahrenheitCelcius(fahrenheit: _fahrenheit, celcius: _celcius),
               SizedBox(
                 width: double.infinity,
                 height: 50,
